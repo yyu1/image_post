@@ -3,8 +3,8 @@
 PRO create_rfdi, hh_file, hv_file, outfile
 
   ;get file sizes
-  file1_info = file_info(file1)
-  file2_info = file_info(file2)
+  file1_info = file_info(hh_file)
+  file2_info = file_info(hv_file)
 
   ;make sure sizes are the same
   file1_size = file1_info.size
