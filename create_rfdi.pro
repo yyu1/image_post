@@ -42,8 +42,8 @@ PRO create_rfdi, hh_file, hv_file, outfile
 		print, i
 		hh_block = fltarr(remainder/4ULL)
 		hv_block = fltarr(remainder/4ULL)
-		hh_sig0 = fltarr(nblocks)
-		hv_sig0 = fltarr(nblocks)
+		hh_sig0 = fltarr(remainder/4ULL)
+		hv_sig0 = fltarr(remainder/4ULL)
 
 		readu, hh_lun, hh_block
 		readu, hv_lun, hv_block
