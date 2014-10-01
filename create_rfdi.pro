@@ -28,7 +28,7 @@ PRO create_rfdi, hh_file, hv_file, outfile
 	openr, hv_lun, hv_file, /get_lun
 	openw, outlun, outfile, /get_lun
 
-	for i=0ULL, 998 do begin
+	for i=0ULL, 999 do begin
 		print, i
 		readu, hh_lun, hh_block
 		readu, hv_lun, hv_block
@@ -50,15 +50,7 @@ PRO create_rfdi, hh_file, hv_file, outfile
 		hh_sig0[*] = hh_block*hh_block
 		hv_sig0[*] = hv_block*hv_block
 		writeu, outlun, (hh_sig0-hv_sig0)/(hh_sig0+hv_sig0)
-	endif else begin
-		print, i
-		readu, hh_lun, hh_block
-		readu, hv_lun, hv_block
-
-		hh_sig0[*] = hh_block*hh_block
-		hv_sig0[*] = hv_block*hv_block
-		writeu, outlun, (hh_sig0-hv_sig0)/(hh_sig0+hv_sig0)
-	endelse
+	endif
 
 	free_lun, hh_lun
 	free_lun, hv_lun
